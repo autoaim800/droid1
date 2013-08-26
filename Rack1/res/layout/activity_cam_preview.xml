@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <!--  -->
+
+    <SurfaceView
+        android:id="@+id/cam_preview"
+        android:layout_width="240dp"
+        android:layout_height="320dp"
+        android:layout_gravity="center" />
+
+    <!--
+    <LinearLayout
+        android:id="@+id/preview_mash_chooser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|center_horizontal|center_vertical"
+        android:orientation="horizontal" >
+    -->
+
+    <ImageView
+        android:id="@+id/preview_mask"
+        android:layout_width="240dp"
+        android:layout_height="320dp"
+        android:layout_gravity="center"
+        android:alpha="0.5"
+        android:src="@drawable/mask_pants1" >
+    </ImageView>
+
+    <!--
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         </LinearLayout>
+    -->
+
+    <LinearLayout
+        android:id="@+id/preview_navigator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/preview_cat0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cat0" >
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/preview_cat1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cat1" >
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/preview_cat2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cat2" >
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/preview_cat3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cat3" >
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/preview_cat4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cat4" >
+        </ImageView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/preview_controls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/preview_mask_previous"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_left" >
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/preview_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/delete" >
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/preview_snagit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/camera_black" >
+        </ImageView>
+
+        <ImageView
+            android:id="@+id/preview_mask_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/arrow_right" >
+        </ImageView>
+    </LinearLayout>
+
+</FrameLayout>

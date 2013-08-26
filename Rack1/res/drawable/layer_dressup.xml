@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item
+        android:id="@+id/layer0"
+        android:drawable="@drawable/nocolor"/>
+    
+    <item
+        android:id="@+id/layer1"
+        android:drawable="@drawable/nocolor"/>
+    <item
+        android:id="@+id/layer2"
+        android:drawable="@drawable/nocolor"/>
+    <item
+        android:id="@+id/layer3"
+        android:drawable="@drawable/nocolor"/>
+    <item
+        android:id="@+id/layer4"
+        android:drawable="@drawable/nocolor"/>
+
+</layer-list>
