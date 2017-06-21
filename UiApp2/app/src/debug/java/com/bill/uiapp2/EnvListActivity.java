@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
+
+import com.bill.uiapp2.utils.StringHelper;
+import com.bill.uiapp2.widgets.StringListView;
 
 import java.util.logging.Logger;
 
@@ -16,7 +17,7 @@ import java.util.logging.Logger;
  */
 public class EnvListActivity extends AppCompatActivity {
 
-    private ListView envListView;
+    private StringListView envListView;
     String[] urlArray = new String[]{"url1", "url2"};
     private EditText urlEditText;
 
@@ -27,59 +28,36 @@ public class EnvListActivity extends AppCompatActivity {
         
         initList();
         urlEditText = (EditText)findViewById(R.id.newUrlEditText);
+//        ((Button)findViewById(R.id.addButton)).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                handleOnClickAddButton(view);
+//            }
+//        });
     }
 
     private void initList() {
-        envListView = (ListView)findViewById(R.id.env_list_view);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,
-                urlArray);
-        envListView.setAdapter(adapter);
-
-        envListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        envListView = (StringListView)findViewById(R.id.env_list_view);
+        envListView.setStringArray(urlArray);
+        envListView.setOnStringItemClickListener(new StringListView.OnStringItemClickListener(){
             @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
-                handleUrlLongClicked(position);
-                return false;
-            }
-        });
-
-        envListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                handleUrlSelected(position);
-            }
-        });
-
-        envListView.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
-                handleUrlSelected(position);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-                // do nothing
+            public void onStringItemClick(String value) {
+                handleUrlClicked(value);
             }
         });
     }
 
-    private void handleUrlLongClicked(int position) {
-        initList();
+    private void handleOnClickAddButton(View view){
+        urlArray = StringHelper.appendToStringArray(urlArray, urlEditText.getText().toString());
+        envListView.setStringArray(urlArray);
     }
 
-    private void handleOnClickLaunchButton(View view){
-    }
-
-    private void handleUrlSelected(int position) {
-        info(String.format("clicked on %s", position));
-        if (position < 0 || position > urlArray.length){
-            return;
-        }
-        String url = urlArray[position];
-        info("starting intent for splash-activity");
+    private void handleUrlClicked(String value) {
         Intent i = new Intent(this, SplashActivity.class);
+        // i.put extra url=value
         startActivity(i);
     }
+
 
     private void info(String s) {
         Logger.getLogger("Ui2").info(s);

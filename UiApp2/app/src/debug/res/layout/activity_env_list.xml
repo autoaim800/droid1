@@ -26,15 +26,15 @@
                 android:text="input new url here" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/addButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="handOnClickLaunchButton"
-                android:text="Launch" />
+                android:text="Add"
+                android:onClick="handleOnClickAddButton"/>
 
         </LinearLayout>
 
-        <ListView
+        <com.bill.uiapp2.widgets.StringListView
             android:id="@+id/env_list_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
